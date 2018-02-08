@@ -47,5 +47,21 @@ namespace bannerWeb
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            var mensagem = string.Empty;
+
+            for (int i = 0; i < fupImagem.PostedFiles.Count(); i++)
+            {
+                var file = fupImagem.PostedFiles[i];
+                file.SaveAs(Server.MapPath("~/Imagens" + i + ".jpg"));
+
+                mensagem = "Imagem gravada com sucesso!";
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Mensagem", "alert(' " + mensagem + "')", true);
+            }
+        }
     }
 }
+//C:\Users\crs_9_000\Source\Repos\bannerWeb2\bannerWeb\Imagens\

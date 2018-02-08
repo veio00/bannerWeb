@@ -9,12 +9,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Meu aplicativo ASP.NET</title>
 
+    <%--hghfghfghfghfghfgh--%>
+           <script src="js/jquery-1.7.2.min.js"></script>
+       <script src="js/lightbox.js"></script>
+ 
+       <link href="css/lightbox.css" rel="stylesheet" />
+
+
+<%--Read more: http://www.linhadecodigo.com.br/artigo/3590/jquery-lightbox-como-criar-uma-galeria-de-imagens.aspx#ixzz56WNwg3Eg--%>
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
+
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+    <script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+    </script>
+    <style type="text/css">
+    /* jQuery lightBox plugin - Gallery style */
+    #gallery {
+        background-color: #fff;
+        padding: 10px;
+        width: auto;
+    }
+    #gallery ul { list-style: none; }
+    #gallery ul li { display: inline; }
+    #gallery ul img {
+        border: 5px solid #444444;
+        border-width: 5px 5px 20px;
+    }
+    #gallery ul a:hover img {
+        border: 5px solid #fff;
+        border-width: 5px 5px 20px;
+        color: #fff;
+    }
+    #gallery ul a:hover { color: #fff; }
+    </style>
+
+
+<%--Read more: http://www.linhadecodigo.com.br/artigo/3590/jquery-lightbox-como-criar-uma-galeria-de-imagens.aspx#ixzz56WOACZnH--%>
 
 </head>
 <body>
