@@ -13,13 +13,13 @@ namespace bannerWeb {
     public partial class _Default {
         
         /// <summary>
-        /// Controle fupImagem.
+        /// Controle fImagem.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupImagem;
+        protected global::System.Web.UI.WebControls.FileUpload fImagem;
         
         /// <summary>
         /// Controle Button1.
@@ -40,12 +40,12 @@ namespace bannerWeb {
         protected global::System.Web.UI.WebControls.Button btnBanco;
         
         /// <summary>
-        /// Controle imgTeste.
+        /// Controle slideshow.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgTeste;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl slideshow;
     }
 }

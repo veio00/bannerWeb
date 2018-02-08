@@ -18,31 +18,19 @@ namespace bannerWeb
             ClsBanner teste = new ClsBanner();
             DataTable tabela = new DataTable();
             tabela = teste.Carregar();
-            imgTeste.Attributes["src"] = "C:/Users/Will/Pictures/teste/" + tabela.Rows[0][1].ToString();
-            string resul = imgTeste.Attributes["src"];
-            //int cont = 0;
-            //while ( cont < tabela.Rows.Count) {
-            //    slideshow.Controls.Add(new HtmlImage()
-            //    {
-            //        Src = "C:/Users/Will/Pictures/teste/" + tabela.Rows[cont][1].ToString(),
-            //        Alt = tabela.Rows[cont][2].ToString(),
-            //        Width = 200,
-            //        Height = 200
-            //    });
-            //    cont++;
-            //}
+            int cont = 0;
+            while (cont < tabela.Rows.Count)
+            {
+                slideshow.Controls.Add(new HtmlImage()
+                {
+                    Src = "~/Imagens/" + tabela.Rows[cont][1],
+                    Alt = tabela.Rows[cont][2].ToString(),
+                    Width = 200,
+                    Height = 200
+                });
+                cont++;
+            }
         }
-
-
-
-
-
-
-
-
-
-
-
         protected void btnBanco_Click(object sender, EventArgs e)
         {
 
@@ -52,10 +40,10 @@ namespace bannerWeb
         {
             var mensagem = string.Empty;
 
-            for (int i = 0; i < fupImagem.PostedFiles.Count(); i++)
+            for (int i = 0; i < fImagem.PostedFiles.Count(); i++)
             {
-                var file = fupImagem.PostedFiles[i];
-                file.SaveAs(Server.MapPath("~/Imagens" + i + ".jpg"));
+                var file = fImagem.PostedFiles[i];
+                file.SaveAs(Server.MapPath("~/Imagens/" + i + ".jpg"));
 
                 mensagem = "Imagem gravada com sucesso!";
 
@@ -64,4 +52,3 @@ namespace bannerWeb
         }
     }
 }
-//C:\Users\crs_9_000\Source\Repos\bannerWeb2\bannerWeb\Imagens\

@@ -3,7 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div>
         <br />
-        <asp:FileUpload ID="fupImagem" runat="server" AllowMultiple="True" />
+        
+        <asp:FileUpload ID="fImagem" runat="server" AllowMultiple="True" />
 
         <br />
 
@@ -20,20 +21,10 @@
             </ul>
         </div>
     </div>
-</asp:Content>
-
-
-
-
-
-
-
-
 
 
 
     <asp:Button ID="btnBanco" runat="server" Text="Teste" OnClick="btnBanco_Click" />
-    <asp:Image ID="imgTeste" runat="server" src=""/>
-<%--    <div class="slideshow" runat="server" id="slideshow"></div>--%>
+    <div class="slideshow" runat="server" id="slideshow"></div>
 </asp:Content>
 
