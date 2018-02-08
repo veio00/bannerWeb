@@ -144,6 +144,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Imagens\imagem01.jpg" />
+    <Content Include="Imagens\imagem02.jpg" />
+    <Content Include="Imagens\imagem03.jpg" />
+    <Content Include="Imagens\imagem04.jpg" />
+    <Content Include="Imagens\imagem05.jpg" />
+    <Content Include="Imagens\imagem06.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\cors\jquery.postmessage-transport.js" />
