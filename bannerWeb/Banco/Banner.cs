@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bannerWeb.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,15 +9,16 @@ using System.Web;
 
 namespace bannerWeb.Banco
 {
-    public class ClsBanner
+    public class Banner
     {
+        
         private Banco ObjBanco;
 
-        public ClsBanner()
+        public Banner()
         {
             ObjBanco = new Banco();
         }
-        ~ClsBanner()
+        ~Banner()
         {
             ObjBanco = null;
         }

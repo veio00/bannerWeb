@@ -15,6 +15,13 @@ namespace bannerWeb
 {
     public partial class _Default : Page
     {
+
+        //private List<clsFoto> fotos;
+
+        //public List<clsFoto> Fotos { get => fotos; }
+
+           
+
         protected void Page_Load(object sender, EventArgs e)
         {
             carregaFoto();
@@ -39,22 +46,24 @@ namespace bannerWeb
             }
         }
         
-        public List<clsFoto> carregaFoto()
+        private void carregaFoto()
         {
-            ClsBanner teste = new ClsBanner();
+            
+            Banner teste = new Banner();
             DataTable tabela = new DataTable();
-            clsFoto foto = new clsFoto();
-            List<clsFoto> listaFoto = new List<clsFoto>();
+           
+            List<Foto> listaFoto = new List<Foto>();
             tabela = teste.Carregar();
             int cont=0;
             while (cont < tabela.Rows.Count)
             {
+                Foto foto = new Foto();
                 foto.nomeArquivo = tabela.Rows[cont][1].ToString();
-                foto.descricao = tabela.Rows[cont][2].ToString();
+                foto.descricao = tabela.Rows[cont++][2].ToString();
                 listaFoto.Add(foto);
-                cont++;
             }
-            return listaFoto;
+            this.fotos.DataSource = listaFoto;
+            this.fotos.DataBind();
         }
 
     }

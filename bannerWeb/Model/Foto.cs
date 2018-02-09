@@ -5,7 +5,7 @@ using System.Web;
 
 namespace bannerWeb.Model
 {
-    public class clsFoto
+    public class Foto
     {
         public string nomeArquivo { get; set; }
         public string descricao { get; set; }

@@ -37,3 +37,15 @@ C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.csprojResolve
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.csproj.CoreCompileInputs.cache
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.dll
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.pdb
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.csproj.App.config
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Net.Http.dll
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Net.Http.Extensions.dll
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Net.Http.Primitives.dll
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Web.Http.Common.dll
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Net.Http.Extensions.xml
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Net.Http.Primitives.xml
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\System.Web.Http.Common.xml
