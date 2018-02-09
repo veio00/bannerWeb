@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
+using bannerWeb.Model;
+
 
 namespace bannerWeb
 {
@@ -15,25 +17,11 @@ namespace bannerWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ClsBanner teste = new ClsBanner();
-            DataTable tabela = new DataTable();
-            tabela = teste.Carregar();
-            int cont = 0;
-            while (cont < tabela.Rows.Count)
-            {
-                slideshow.Controls.Add(new HtmlImage()
-                {
-                    Src = "~/Imagens/" + tabela.Rows[cont][1],
-                    Alt = tabela.Rows[cont][2].ToString(),
-                    Width = 200,
-                    Height = 200
-                });
-                cont++;
-            }
+            carregaFoto();
         }
         protected void btnBanco_Click(object sender, EventArgs e)
         {
-
+            //teste.Carregar();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -50,5 +38,24 @@ namespace bannerWeb
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Mensagem", "alert(' " + mensagem + "')", true);
             }
         }
+        
+        public List<clsFoto> carregaFoto()
+        {
+            ClsBanner teste = new ClsBanner();
+            DataTable tabela = new DataTable();
+            clsFoto foto = new clsFoto();
+            List<clsFoto> listaFoto = new List<clsFoto>();
+            tabela = teste.Carregar();
+            int cont=0;
+            while (cont < tabela.Rows.Count)
+            {
+                foto.nomeArquivo = tabela.Rows[cont][1].ToString();
+                foto.descricao = tabela.Rows[cont][2].ToString();
+                listaFoto.Add(foto);
+                cont++;
+            }
+            return listaFoto;
+        }
+
     }
 }

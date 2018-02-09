@@ -22,9 +22,5 @@
         </div>
     </div>
 
-
-
-    <asp:Button ID="btnBanco" runat="server" Text="Teste" OnClick="btnBanco_Click" />
-    <div class="slideshow" runat="server" id="slideshow"></div>
 </asp:Content>
 
