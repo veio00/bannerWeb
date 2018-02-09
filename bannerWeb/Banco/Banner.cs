@@ -30,7 +30,28 @@ namespace bannerWeb.Banco
 
                 List<SqlParameter> LstParametros = new List<SqlParameter>();
 
-                DataTable dt = ObjBanco.ExecuteProc("select * from foto", LstParametros);
+                DataTable dt = ObjBanco.ExecuteProc(@"
+                    select * from foto f inner join agendamento a on f.id = a.id 
+                    where  inicio >= getdate()
+               ", LstParametros);
+
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+
+        public DataTable Pesquisar(string parametro)
+        {
+            try
+            {
+
+                List<SqlParameter> LstParametros = new List<SqlParameter>();
+
+                DataTable dt = ObjBanco.ExecuteProc("select * from foto where descricao like '%" + parametro + "%' ", LstParametros);
 
                 return dt;
             }

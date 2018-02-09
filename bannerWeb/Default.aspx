@@ -3,6 +3,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div>
         <br />
+        <asp:TextBox ID="tbPesquisa" runat="server"></asp:TextBox>
+
+&nbsp;&nbsp;&nbsp;
+
+        <asp:Button ID="btnProcurar" runat="server" Text="Procurar" OnClick="btnProcurar_Click" />
+
+        <br />
         
         <asp:FileUpload ID="fImagem" runat="server" AllowMultiple="True" />
 
@@ -22,11 +29,6 @@
                       </li>
                     </ItemTemplate>
                 </asp:Repeater>
-                <%--<li>
-                    <a href=""<img src="Imagens/imagem01.jpg" "rel="lightbox" title="Imagem 1"> <img src="Imagens/imagem01.jpg" width="160" height="160" alt="" title="Img#1" /></a>
-                    <a href=""<img src="Imagens/imagem01.jpg" "rel="lightbox" title="Imagem 2"> <img src="Imagens/imagem01.jpg" width="160" height="160" alt="" title="Img#2" /></a>
-                    <a href=""<img src="Imagens/imagem01.jpg" "rel="lightbox" title="Imagem 3"> <img src="Imagens/imagem01.jpg" width="160" height="160" alt="" title="Img#3" /></a>
-                </li>--%>
                 <br />
             </ul>
         </div>

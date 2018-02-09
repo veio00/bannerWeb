@@ -15,13 +15,6 @@ namespace bannerWeb
 {
     public partial class _Default : Page
     {
-
-        //private List<clsFoto> fotos;
-
-        //public List<clsFoto> Fotos { get => fotos; }
-
-           
-
         protected void Page_Load(object sender, EventArgs e)
         {
             carregaFoto();
@@ -64,7 +57,35 @@ namespace bannerWeb
             }
             this.fotos.DataSource = listaFoto;
             this.fotos.DataBind();
+
+
         }
 
+        private void Pesquisa()
+        {
+
+            Banner teste = new Banner();
+            DataTable tabela = new DataTable();
+
+            List<Foto> listaFoto = new List<Foto>();
+            tabela = teste.Pesquisar(tbPesquisa.Text);
+            int cont = 0;
+            while (cont < tabela.Rows.Count)
+            {
+                Foto foto = new Foto();
+                foto.nomeArquivo = tabela.Rows[cont][1].ToString();
+                foto.descricao = tabela.Rows[cont++][2].ToString();
+                listaFoto.Add(foto);
+            }
+            this.fotos.DataSource = listaFoto;
+            this.fotos.DataBind();
+
+
+        }
+
+        protected void btnProcurar_Click(object sender, EventArgs e)
+        {
+            Pesquisa();
+        }
     }
 }
