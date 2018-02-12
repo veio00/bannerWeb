@@ -21,7 +21,7 @@ namespace bannerWeb
         }
         protected void btnBanco_Click(object sender, EventArgs e)
         {
-            //teste.Carregar();
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)

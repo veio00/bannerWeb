@@ -55,14 +55,14 @@ namespace bannerWeb.Banco
                 throw ex;
             }
         }
-        public DataTable ExecuteProc(string strNomeProc, List<SqlParameter> lstParametros)
+        public DataTable ExecuteQuery(string strQuery, List<SqlParameter> lstParametros)
         {
             try
             {
                 DataTable dtDados = new DataTable();
                 using (SqlConnection sqlConexao = AbrirConexao())
                 {
-                    using (SqlCommand sqlComando = new SqlCommand(strNomeProc, sqlConexao))
+                    using (SqlCommand sqlComando = new SqlCommand(strQuery, sqlConexao))
                     {
                         sqlComando.CommandType = System.Data.CommandType.Text;
 

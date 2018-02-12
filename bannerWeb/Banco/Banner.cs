@@ -30,7 +30,7 @@ namespace bannerWeb.Banco
 
                 List<SqlParameter> LstParametros = new List<SqlParameter>();
 
-                DataTable dt = ObjBanco.ExecuteProc(@"
+                DataTable dt = ObjBanco.ExecuteQuery(@"
                     select * from foto f inner join agendamento a on f.id = a.id 
                     where  inicio >= getdate()
                ", LstParametros);
@@ -51,13 +51,64 @@ namespace bannerWeb.Banco
 
                 List<SqlParameter> LstParametros = new List<SqlParameter>();
 
-                DataTable dt = ObjBanco.ExecuteProc("select * from foto where descricao like '%" + parametro + "%' ", LstParametros);
+                DataTable dt = ObjBanco.ExecuteQuery("select * from foto where descricao like '%" + parametro + "%' ", LstParametros);
 
                 return dt;
             }
             catch (Exception)
             {
                 return null;
+            }
+
+        }
+
+        public bool SalvarUpload (string nomeArquivo, string descricao, int padrao)
+        {
+
+            try
+            {
+
+                List<SqlParameter> LstParametros = new List<SqlParameter>();
+
+                DataTable dt = ObjBanco.ExecuteQuery("insert into Foto values('"+ nomeArquivo + "','"+ descricao + "',"+ padrao + ")", LstParametros);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+        }
+        public bool SalvarAgendamento(DateTime inicio, DateTime fim, string dias, int idFoto)
+        {
+
+            try
+            {
+
+                List<SqlParameter> LstParametros = new List<SqlParameter>();
+
+                DataTable dt = ObjBanco.ExecuteQuery("insert into Agendamento values('" + inicio + "','" + fim + "','" + dias + "'," + idFoto + ")", LstParametros);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
             }
 
         }

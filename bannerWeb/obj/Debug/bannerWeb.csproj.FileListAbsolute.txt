@@ -33,7 +33,6 @@ C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\Microsoft.AI.WindowsServer.xm
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\Microsoft.AI.Web.xml
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\pt-br\System.Web.Optimization.resources.dll
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\bin\pt-br\Microsoft.AspNet.FriendlyUrls.resources.dll
-C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.csprojResolveAssemblyReference.cache
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.csproj.CoreCompileInputs.cache
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.dll
 C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.pdb
@@ -100,3 +99,4 @@ C:\Users\crs_9_000\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.csprojRe
 C:\Users\crs_9_000\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.csproj.CoreCompileInputs.cache
 C:\Users\crs_9_000\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.dll
 C:\Users\crs_9_000\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.pdb
+C:\Users\Will\Source\Repos\bannerWeb\bannerWeb\obj\Debug\bannerWeb.csprojResolveAssemblyReference.cache
