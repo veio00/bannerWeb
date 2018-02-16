@@ -12,7 +12,7 @@
     <%--hghfghfghfghfghfgh--%>
            <script src="js/jquery-1.7.2.min.js"></script>
        <script src="js/lightbox.js"></script>
- 
+       <link href="css/css.css" rel="stylesheet" />
        <link href="css/lightbox.css" rel="stylesheet" />
 
 

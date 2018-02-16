@@ -27,14 +27,28 @@ namespace bannerWeb
         protected void Button1_Click(object sender, EventArgs e)
         {
             var mensagem = string.Empty;
-
+            bool upload = false;
             for (int i = 0; i < fImagem.PostedFiles.Count(); i++)
             {
                 var file = fImagem.PostedFiles[i];
-                file.SaveAs(Server.MapPath("~/Imagens/" + i + ".jpg"));
+                file.SaveAs(Server.MapPath("~/Imagens/imagem" + i + ".jpg"));
 
+                Banner teste = new Banner();
+                upload = teste.SalvarUpload("imagem" + teste.UltimaImagem()+1 + ".jpg",txtDescricao.Text,padrao);
+
+                //mensagem = "Imagem gravada com sucesso!";
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Mensagem", "alert(' " + mensagem + "')", true);
+            }
+
+            if(upload == true)
+            {
                 mensagem = "Imagem gravada com sucesso!";
-
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Mensagem", "alert(' " + mensagem + "')", true);
+            }
+            else
+            {
+                mensagem = "Imagem ou imagens não puderam ser carregadas! Por favor tentar novamente";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Mensagem", "alert(' " + mensagem + "')", true);
             }
         }
@@ -86,6 +100,18 @@ namespace bannerWeb
         protected void btnProcurar_Click(object sender, EventArgs e)
         {
             Pesquisa();
+        }
+        public int padrao;
+        protected void ImagemPadrao(object sender, EventArgs e)
+        {
+            if(cbPadrao.Checked == true)
+            {
+                padrao = 1;
+            }
+            else
+            {
+                padrao = 0;
+            }
         }
     }
 }

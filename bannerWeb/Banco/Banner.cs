@@ -72,7 +72,7 @@ namespace bannerWeb.Banco
 
                 DataTable dt = ObjBanco.ExecuteQuery("insert into Foto values('"+ nomeArquivo + "','"+ descricao + "',"+ padrao + ")", LstParametros);
 
-                if (dt != null && dt.Rows.Count > 0)
+                if (dt != null && dt.Rows.Count == 0)
                 {
                     return true;
                 }
@@ -109,6 +109,33 @@ namespace bannerWeb.Banco
             {
 
                 return false;
+            }
+
+        }
+
+        public int UltimaImagem()
+        {
+
+            try
+            {
+
+                List<SqlParameter> LstParametros = new List<SqlParameter>();
+
+                DataTable dt = ObjBanco.ExecuteQuery("SELECT max(id) Ultimo_Registro FROM foto", LstParametros);
+                
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    return int.Parse(dt.Rows[0].ToString());
+                }
+                else
+                {
+                    return -1;
+                }
+
+            }
+            catch (Exception)
+            {
+                return -1;
             }
 
         }

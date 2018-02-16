@@ -1,0 +1,25 @@
+﻿body {
+    padding-left:0;
+   
+}
+.alteracao{
+    float:left;
+    width:40%;
+    padding:0;
+    margin:0;
+}
+.gallery {
+    float: left;
+    width: 60%;
+    padding: 0;
+    margin:0;
+}
+.imagens {
+    float: left;
+    width: 25%;
+    padding: 0;
+}
+img {
+    width:70%;
+    height:100px;
+}

@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width" />
     <title></title>
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+               <script src="js/jquery-1.7.2.min.js"></script>
+       <script src="js/lightbox.js"></script>
+       <link href="css/css.css" rel="stylesheet" />
+       <link href="css/lightbox.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
