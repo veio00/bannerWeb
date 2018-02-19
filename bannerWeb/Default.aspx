@@ -4,7 +4,6 @@
     <div class="gallery">
         <h1>Carregar Imagem</h1>
         <br>
-            <ul>
                 <asp:Repeater ID="fotos" runat="server">
                     <ItemTemplate>
                         <div class="imagens">
@@ -14,7 +13,6 @@
                     </ItemTemplate>
                 </asp:Repeater>
                 <br />
-            </ul>
     </div>
     <div class="alteracao">
         <h1>Pesquisar</h1>
