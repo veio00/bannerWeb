@@ -127,7 +127,7 @@ namespace bannerWeb
             }
             string testes = selectedValue;
             Banner teste = new Banner();
-            //teste.SalvarAgendamento(DateTime.Parse(txtInicio.Text), DateTime.Parse(txtFim.Text), "", 1);
+            teste.SalvarAgendamento(DateTime.Parse(txtInicio.Text), DateTime.Parse(txtFim.Text),selectedValue, 1);
         }
     }
 }
