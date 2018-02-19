@@ -113,5 +113,21 @@ namespace bannerWeb
                 padrao = 0;
             }
         }
+
+        protected void btnAgendar_Click(object sender, EventArgs e)
+        {
+            string selectedValue="";
+            var selected = cbDias.Items.Cast<ListItem>().Where(x => x.Selected);
+            foreach (ListItem item in cbDias.Items)
+            {
+                if (item.Selected)
+                {
+                    selectedValue = item.Value + "," + selectedValue;
+                }
+            }
+            string testes = selectedValue;
+            Banner teste = new Banner();
+            //teste.SalvarAgendamento(DateTime.Parse(txtInicio.Text), DateTime.Parse(txtFim.Text), "", 1);
+        }
     }
 }

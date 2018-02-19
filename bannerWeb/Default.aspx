@@ -40,16 +40,16 @@
             <asp:TextBox type="date" ID="txtInicio" runat="server"></asp:TextBox>
             <span>Data de inicio</span>
             <asp:TextBox type="date" ID="txtFim" runat="server"></asp:TextBox>
-            <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatDirection="Horizontal">
-                <asp:ListItem Value="Segunda">Segunda</asp:ListItem>
-                <asp:ListItem Value="Terça">Terça</asp:ListItem>
-                <asp:ListItem Value="Quarta">Quarta</asp:ListItem>
-                <asp:ListItem>Quinta</asp:ListItem>
-                <asp:ListItem>Sexta</asp:ListItem>
-                <asp:ListItem>Sabado</asp:ListItem>
-                <asp:ListItem>Domingo</asp:ListItem>
+            <asp:CheckBoxList ID="cbDias" runat="server" RepeatDirection="Horizontal">
+                <asp:ListItem Value="2">Segunda</asp:ListItem>
+                <asp:ListItem Value="3">Terça</asp:ListItem>
+                <asp:ListItem Value="4">Quarta</asp:ListItem>
+                <asp:ListItem Value="5">Quinta</asp:ListItem>
+                <asp:ListItem Value="6">Sexta</asp:ListItem>
+                <asp:ListItem Value="7">Sabado</asp:ListItem>
+                <asp:ListItem Value="1">Domingo</asp:ListItem>
             </asp:CheckBoxList>
-            <asp:Button ID="btnAgendar" runat="server" Text="Button" />
+            <asp:Button ID="btnAgendar" runat="server" Text="Agendar" OnClick="btnAgendar_Click" />
         </div>
     </div>
     <div>
