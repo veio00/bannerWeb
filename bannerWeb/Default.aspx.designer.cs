@@ -94,6 +94,15 @@ namespace bannerWeb {
         protected global::System.Web.UI.WebControls.Button btnCarregar;
         
         /// <summary>
+        /// Controle lblFotoAgendada.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFotoAgendada;
+        
+        /// <summary>
         /// Controle txtInicio.
         /// </summary>
         /// <remarks>

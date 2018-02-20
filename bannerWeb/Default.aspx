@@ -7,11 +7,16 @@
         <asp:Repeater ID="fotos" runat="server">
             <ItemTemplate>
                 <div class="imagens">
-                    <a href=""<img src="Imagens/<%# Eval("nomeArquivo") %>" "rel="lightbox" title="Imagem 1"> <img src="Imagens/<%# Eval("nomeArquivo") %>" alt="" title="Img#1" /></a>--%>
+                    <a href=""<img src="Imagens/<%# Eval("nomeArquivo") %>" "rel="lightbox" title="Imagem 1" onclick="func(<%# Eval("idFoto") %>)"><img src="Imagens/<%# Eval("nomeArquivo") %>" alt="" title="Img#1" /></a>
                     <span><%# Eval("descricao") %></span>
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+<%--        <script>
+            function func(teste) {
+                $("#MainContent_lblIdFoto").attr('Text') = teste; 
+            }
+        </script>--%>
         <br />
     </div>
     <div class="alteracao">
@@ -36,9 +41,10 @@
         </div>
         <div class="Agendar">
             <h1>Agendar Imagem</h1>
+            <asp:Label ID="lblFotoAgendada" runat="server" Text=""></asp:Label>
             <span>Data de inicio</span>
             <asp:TextBox type="date" ID="txtInicio" runat="server"></asp:TextBox>
-            <span>Data de inicio</span>
+            <span>Data de termino</span>
             <asp:TextBox type="date" ID="txtFim" runat="server"></asp:TextBox>
             <asp:CheckBoxList ID="cbDias" runat="server" RepeatDirection="Horizontal">
                 <asp:ListItem Value="2">Segunda</asp:ListItem>
@@ -52,12 +58,8 @@
             <asp:Button ID="btnAgendar" runat="server" Text="Agendar" OnClick="btnAgendar_Click" />
         </div>
     </div>
-    <div>
-        <h1>Agendamento</h1>
-
-    </div>
 
 
-
+<%--<asp:Label ID="lblIdFoto" runat="server" Text="111111111111111111111111111" Visible="true"></asp:Label>--%>
 </asp:Content>
 

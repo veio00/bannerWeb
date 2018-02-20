@@ -9,7 +9,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using bannerWeb.Model;
-
+using System.Text;
+using System.Web.Services;
 
 namespace bannerWeb
 {
@@ -18,9 +19,24 @@ namespace bannerWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             carregaFoto();
+            if (IsPostBack == false)
+            {
+                // É a primeira vez que a página abre!
+                string teste = IsCallback.ToString();
+
+            }
+            else
+            {
+                // O usuário clicou em um botão, ou realizou alguma ação!
+                StringBuilder teste = new StringBuilder();
+                teste.Append(string.Format("< asp:Image ID = 'imgAgendada' src = 'Imagens /<%# Eval('nomeArquivo') %>' idFoto = '<%# Eval('idFoto') %>' runat = 'server' />"));
+                lblFotoAgendada.Text = teste.ToString();
+
+            }
         }
         protected void btnBanco_Click(object sender, EventArgs e)
         {
+                       // "< asp:Image ID = "imgAgendada" src = "Imagens/<%# Eval("nomeArquivo") %>" idFoto = "<%# Eval("idFoto") %>" runat = "server" />"
 
         }
 
@@ -65,6 +81,7 @@ namespace bannerWeb
             while (cont < tabela.Rows.Count)
             {
                 Foto foto = new Foto();
+                foto.idFoto= tabela.Rows[cont][0].ToString();
                 foto.nomeArquivo = tabela.Rows[cont][1].ToString();
                 foto.descricao = tabela.Rows[cont++][2].ToString();
                 listaFoto.Add(foto);
@@ -82,11 +99,12 @@ namespace bannerWeb
             DataTable tabela = new DataTable();
 
             List<Foto> listaFoto = new List<Foto>();
-            tabela = teste.Pesquisar(tbPesquisa.Text);
+            tabela = teste.Pesquisar(tbPesquisa.Text,cbTodasImg.Enabled);
             int cont = 0;
             while (cont < tabela.Rows.Count)
             {
                 Foto foto = new Foto();
+                foto.idFoto = tabela.Rows[cont][0].ToString();
                 foto.nomeArquivo = tabela.Rows[cont][1].ToString();
                 foto.descricao = tabela.Rows[cont++][2].ToString();
                 listaFoto.Add(foto);
@@ -99,7 +117,15 @@ namespace bannerWeb
 
         protected void btnProcurar_Click(object sender, EventArgs e)
         {
-            Pesquisa();
+            if(cbTodasImg.Enabled == true)
+            {
+                Pesquisa();
+            }
+            else
+            {
+                Pesquisa();
+            }
+            
         }
         public int padrao;
         protected void ImagemPadrao(object sender, EventArgs e)
@@ -129,5 +155,7 @@ namespace bannerWeb
             Banner teste = new Banner();
             teste.SalvarAgendamento(DateTime.Parse(txtInicio.Text), DateTime.Parse(txtFim.Text),selectedValue, 1);
         }
+
+
     }
 }

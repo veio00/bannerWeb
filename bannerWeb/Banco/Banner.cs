@@ -44,16 +44,26 @@ namespace bannerWeb.Banco
 
         }
 
-        public DataTable Pesquisar(string parametro)
+        public DataTable Pesquisar(string parametro,bool pesquisa)
         {
             try
             {
+                if (pesquisa == true)
+                {
+                    List<SqlParameter> LstParametros = new List<SqlParameter>();
 
-                List<SqlParameter> LstParametros = new List<SqlParameter>();
+                    DataTable dt = ObjBanco.ExecuteQuery("select * from foto where descricao like '%" + parametro + "%' ", LstParametros);
 
-                DataTable dt = ObjBanco.ExecuteQuery("select * from foto where descricao like '%" + parametro + "%' ", LstParametros);
+                    return dt;
+                }
+                else
+                {
+                    List<SqlParameter> LstParametros = new List<SqlParameter>();
 
-                return dt;
+                    DataTable dt = ObjBanco.ExecuteQuery("select* from foto f inner join agendamento a on f.id = a.id where inicio >= getdate() and descricao like '%" + parametro + "%' ", LstParametros);
+
+                    return dt;
+                }
             }
             catch (Exception)
             {
