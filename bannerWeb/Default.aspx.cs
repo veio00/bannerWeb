@@ -19,24 +19,9 @@ namespace bannerWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             carregaFoto();
-            if (IsPostBack == false)
-            {
-                // É a primeira vez que a página abre!
-                string teste = IsCallback.ToString();
-
-            }
-            else
-            {
-                // O usuário clicou em um botão, ou realizou alguma ação!
-                StringBuilder teste = new StringBuilder();
-                teste.Append(string.Format("< asp:Image ID = 'imgAgendada' src = 'Imagens /<%# Eval('nomeArquivo') %>' idFoto = '<%# Eval('idFoto') %>' runat = 'server' />"));
-                lblFotoAgendada.Text = teste.ToString();
-
-            }
         }
         protected void btnBanco_Click(object sender, EventArgs e)
         {
-                       // "< asp:Image ID = "imgAgendada" src = "Imagens/<%# Eval("nomeArquivo") %>" idFoto = "<%# Eval("idFoto") %>" runat = "server" />"
 
         }
 
@@ -47,14 +32,17 @@ namespace bannerWeb
             for (int i = 0; i < fImagem.PostedFiles.Count(); i++)
             {
                 var file = fImagem.PostedFiles[i];
-                file.SaveAs(Server.MapPath("~/Imagens/imagem" + i + ".jpg"));
+                file.SaveAs(Server.MapPath("~/Imagens/imagem0" + i + ".jpg"));
 
                 Banner teste = new Banner();
-                upload = teste.SalvarUpload("imagem" + teste.UltimaImagem()+1 + ".jpg",txtDescricao.Text,padrao);
+                string nome = teste.UltimaImagem();
+                if(nome == "")
+                {
+                    nome = "-1";
+                }
+                int t = int.Parse(nome) + 1;
+                upload = teste.SalvarUpload("imagem0" + t + ".jpg",txtDescricao.Text,padrao);
 
-                //mensagem = "Imagem gravada com sucesso!";
-
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Mensagem", "alert(' " + mensagem + "')", true);
             }
 
             if(upload == true)
@@ -99,7 +87,7 @@ namespace bannerWeb
             DataTable tabela = new DataTable();
 
             List<Foto> listaFoto = new List<Foto>();
-            tabela = teste.Pesquisar(tbPesquisa.Text,cbTodasImg.Enabled);
+            tabela = teste.Pesquisar(tbPesquisa.Text,cbTodasImg.Checked);
             int cont = 0;
             while (cont < tabela.Rows.Count)
             {
@@ -143,6 +131,7 @@ namespace bannerWeb
         protected void btnAgendar_Click(object sender, EventArgs e)
         {
             string selectedValue="";
+            string nomeImagem ;
             var selected = cbDias.Items.Cast<ListItem>().Where(x => x.Selected);
             foreach (ListItem item in cbDias.Items)
             {

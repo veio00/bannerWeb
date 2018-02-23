@@ -7,16 +7,18 @@
         <asp:Repeater ID="fotos" runat="server">
             <ItemTemplate>
                 <div class="imagens">
-                    <a href=""<img src="Imagens/<%# Eval("nomeArquivo") %>" "rel="lightbox" title="Imagem 1" onclick="func(<%# Eval("idFoto") %>)"><img src="Imagens/<%# Eval("nomeArquivo") %>" alt="" title="Img#1" /></a>
+                    <a href="#"<img src="Imagens/<%# Eval("nomeArquivo") %>" "rel="lightbox" title="Imagem 1" onclick="func('<%# Eval("nomeArquivo") %>','<%# Eval("idFoto") %>')"><img src="Imagens/<%# Eval("nomeArquivo") %>" alt="" title="Img#1" /></a>
                     <span><%# Eval("descricao") %></span>
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-<%--        <script>
-            function func(teste) {
-                $("#MainContent_lblIdFoto").attr('Text') = teste; 
+        <script>
+            function func(nome,id) {
+                var caminho = "Imagens/" + nome;
+                $(".Agendada").attr('src', caminho);
+                $(".Agendada").attr('ImageUrl', caminho);
             }
-        </script>--%>
+        </script>
         <br />
     </div>
     <div class="alteracao">
@@ -41,6 +43,7 @@
         </div>
         <div class="Agendar">
             <h1>Agendar Imagem</h1>
+            <asp:Image ID="imgAgendada" class="Agendada" runat="server" />
             <asp:Label ID="lblFotoAgendada" runat="server" Text=""></asp:Label>
             <span>Data de inicio</span>
             <asp:TextBox type="date" ID="txtInicio" runat="server"></asp:TextBox>
@@ -60,6 +63,5 @@
     </div>
 
 
-<%--<asp:Label ID="lblIdFoto" runat="server" Text="111111111111111111111111111" Visible="true"></asp:Label>--%>
 </asp:Content>
 

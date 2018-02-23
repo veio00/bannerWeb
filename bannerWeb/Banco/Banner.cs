@@ -44,15 +44,15 @@ namespace bannerWeb.Banco
 
         }
 
-        public DataTable Pesquisar(string parametro,bool pesquisa)
+        public DataTable Pesquisar(string pesquisa, bool parametro)
         {
             try
             {
-                if (pesquisa == true)
+                if (parametro  == true)
                 {
                     List<SqlParameter> LstParametros = new List<SqlParameter>();
 
-                    DataTable dt = ObjBanco.ExecuteQuery("select * from foto where descricao like '%" + parametro + "%' ", LstParametros);
+                    DataTable dt = ObjBanco.ExecuteQuery("select * from foto where descricao like '%" + pesquisa + "%' ", LstParametros);
 
                     return dt;
                 }
@@ -60,7 +60,7 @@ namespace bannerWeb.Banco
                 {
                     List<SqlParameter> LstParametros = new List<SqlParameter>();
 
-                    DataTable dt = ObjBanco.ExecuteQuery("select* from foto f inner join agendamento a on f.id = a.id where inicio >= getdate() and descricao like '%" + parametro + "%' ", LstParametros);
+                    DataTable dt = ObjBanco.ExecuteQuery("select* from foto f inner join agendamento a on f.id = a.id where inicio >= getdate() and descricao like '%" + pesquisa + "%' ", LstParametros);
 
                     return dt;
                 }
@@ -123,7 +123,7 @@ namespace bannerWeb.Banco
 
         }
 
-        public int UltimaImagem()
+        public string UltimaImagem()
         {
 
             try
@@ -135,17 +135,18 @@ namespace bannerWeb.Banco
                 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    return int.Parse(dt.Rows[0].ToString());
+
+                    return dt.Rows[0][0].ToString();
                 }
                 else
                 {
-                    return -1;
+                    return null;
                 }
 
             }
             catch (Exception)
             {
-                return -1;
+                return null;
             }
 
         }
